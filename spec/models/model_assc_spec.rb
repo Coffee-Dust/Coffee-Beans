@@ -31,3 +31,18 @@ describe User do
     expect(u.commented_posts.first.id).to be_equal(p.id)
   end
 end
+
+describe Post do
+  u = User.create({name: "John", email: "your@face.com", password: "yourface"})
+  p = u.posts.create(content: "Lol idk")
+  c1 = p.comments.create(content: "idk", user: u)
+
+  it "has many comments" do
+    expect(p.comments.count).to be_equal(1)
+  end
+
+  it "has many users through comments(users_who_commented)" do
+    expect(p.users_who_commented).to include(u)
+  end
+
+end
