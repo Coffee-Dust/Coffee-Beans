@@ -30,6 +30,17 @@ describe User do
     c = p.comments.create(content: "i replied to my own post, am lonely", user: u)
     expect(u.commented_posts.first.id).to be_equal(p.id)
   end
+
+  it "has a secure password" do
+    u = User.create(user_attr)
+    expect(u.password_digest).to_not be_equal("yourface")
+  end
+
+  it "has a secure password with #authenticate" do
+    u = User.create(user_attr)
+    expect(u.authenticate(user_attr[:password])).to be_truthy
+    expect(u.authenticate("passwordalllowercase")).to be(false)
+  end
 end
 
 describe Post do
