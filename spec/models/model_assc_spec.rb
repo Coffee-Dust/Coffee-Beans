@@ -56,4 +56,19 @@ describe Post do
     expect(p.users_who_commented).to include(u)
   end
 
+  it "has many reactions" do
+    p.reactions.create(reaction_type: 1, user: u)
+    expect(p.reactions.count).to be_equal(1)
+  end
+
+end
+
+describe Comment do
+  u = User.create({name: "John", email: "your@face.com", password: "yourface"})
+  p = u.posts.create(content: "Lol idk")
+  c1 = p.comments.create(content: "idk", user: u)
+  it "has many reactions" do
+    c1.reactions.create(reaction_type: 1, user: u)
+    expect(c1.reactions.count).to be_equal(1)
+  end
 end
