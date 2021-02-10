@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :logged_in_or_redirect, except: [:index, :show]
+  before_action :check_owner, only: [:edit, :update, :destroy]
 
   def index
   end
@@ -21,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-
+    render :edit
   end
   
   def update
@@ -36,5 +37,14 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content)
+  end
+
+  def check_owner
+    @post = Post.find_by(id: params[:id])
+    if @post && @post.user == current_user
+      return true
+    else
+      redirect_back(fallback_location: user_path(current_user))
+    end
   end
 end
