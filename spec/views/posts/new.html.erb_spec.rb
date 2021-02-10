@@ -20,6 +20,6 @@ RSpec.describe "posts/new.html.erb", type: :view do
     user_login
     visit "beans/new"
     click_button('Post Bean')
-    expect(page.find("#post_content")[:class].include?("field_with_errors")).to be(true)
+    expect(page.find(".field_with_errors")).to be_truthy
   end
 end
