@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   root 'welcome#home'
   
   resources :users, except: [:index] do
-    resources :posts, path: "beans", except: [:index]
+    resources :posts, path: "beans", only: [:show]
   end
+  resources :posts, path: "beans", except: [:show]
 
   get 'login', to: 'sessions#new'
   post 'logout', to: 'sessions#destroy'
