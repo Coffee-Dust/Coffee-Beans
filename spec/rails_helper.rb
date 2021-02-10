@@ -71,3 +71,7 @@ def user_login
   fill_in("user[password]", with: "yes")
   click_button('Log In')
 end
+
+def find_test_user(page)
+  @test_user ||= User.find(page.get_rack_session_key("user_id"))
+end
