@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :logged_in_or_redirect, except: [:index, :show]
 
   def index
   end
@@ -7,24 +8,15 @@ class PostsController < ApplicationController
   end
 
   def new
-    if logged_in?
-      @post = Post.new
-      render :new
-    else
-      redirect_to(login_path)
-    end
+    @post = Post.new
   end
 
   def create
-    if logged_in?
-      @post = Post.new(content: post_params[:content], user: current_user)
-      if @post.save
-        redirect_to(user_post_path(current_user, @post))
-      else
-        render :new
-      end
+    @post = Post.new(content: post_params[:content], user: current_user)
+    if @post.save
+      redirect_to(user_post_path(current_user, @post))
     else
-      redirect_to(login_path)
+      render :new
     end
   end
 
