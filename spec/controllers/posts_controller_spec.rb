@@ -19,6 +19,30 @@ RSpec.describe PostsController, type: :feature do
       visit edit_post_path(p)
       expect(current_path).to eq(user_path(@test_user))
     end
+
+    it "will update a post when submitted" do
+      user_login
+      find_test_user(page)
+      p = Post.create!(content: "jsdjfksdjfi", user: @test_user)
+      visit edit_post_path(p)
+      fill_in "post[content]", with: "Your face"
+      click_button("Update Bean")
+      
+      expect(Post.find(p.id).content).to eq("Your face")
+    end
+  end
+
+  describe "POST #update" do
+    it "will redirect you to the updated post" do
+      user_login
+      find_test_user(page)
+      p = Post.create!(content: "jsdjfksdjfi", user: @test_user)
+      visit edit_post_path(p)
+      fill_in "post[content]", with: "Your face"
+      click_button("Update Bean")
+
+      expect(current_path).to eq(user_post_path(@test_user, p))
+    end
   end
 
 end
