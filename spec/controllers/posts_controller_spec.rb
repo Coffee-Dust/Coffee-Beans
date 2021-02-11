@@ -45,4 +45,17 @@ RSpec.describe PostsController, type: :feature do
     end
   end
 
+  describe "POST #destroy" do
+    it "will delete that post" do
+      user_login
+      find_test_user(page)
+      p = Post.create!(content: "jsdjfksdjfi", user: @test_user)
+      visit user_post_path(@test_user, p)
+
+      click_button("Delete Bean")
+
+      expect(Post.find_by(id: p.id)).to eq(nil)
+    end
+  end
+
 end
