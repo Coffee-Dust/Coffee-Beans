@@ -1,2 +1,5 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
+<p>your bean below:</p>
+<%= @post.content %>
+<%= button_to("Delete Bean", post_path(@post), method: "delete") %>
