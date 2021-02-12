@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :posts, path: "beans", except: [:show]
   
-  resources :reactions, only: [:create, :destroy]
+  post :reactions, to: 'reactions#react_or_remove'
 
   get 'login', to: 'sessions#new'
   post 'logout', to: 'sessions#destroy'
