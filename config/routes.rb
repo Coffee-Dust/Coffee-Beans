@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :posts, path: "beans", only: [:show]
   end
   resources :posts, path: "beans", except: [:show]
+  
+  resources :reactions, only: [:create, :destroy]
 
   get 'login', to: 'sessions#new'
   post 'logout', to: 'sessions#destroy'
