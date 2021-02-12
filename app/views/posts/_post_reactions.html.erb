@@ -1,0 +1,6 @@
+<%= form_for(Reaction.new) do |f| %>
+  <%= f.hidden_field :reaction_type, value: type %>
+  <%= f.hidden_field :reactable_id, value: post.id %>
+  <%= f.hidden_field :reactable_type, value: post.class %>
+  <%= f.submit("like") %>
+<% end %>
