@@ -71,4 +71,9 @@ describe Comment do
     c1.reactions.create(reaction_type: 1, user: u)
     expect(c1.reactions.count).to be_equal(1)
   end
+
+  it "is valid only if it has a user, post and content" do
+    c2 = Comment.new(content: "")
+    expect(c2.valid?).to eq(false)
+  end
 end
