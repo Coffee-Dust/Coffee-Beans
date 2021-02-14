@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :posts, path: "beans", except: [:show]
   
   post :reactions, to: 'reactions#react_or_remove'
+  
+  resources :comments, only: [:create, :destroy]
 
   get 'login', to: 'sessions#new'
   post 'logout', to: 'sessions#destroy'
