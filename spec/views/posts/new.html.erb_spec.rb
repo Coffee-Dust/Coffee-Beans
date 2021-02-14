@@ -13,7 +13,7 @@ RSpec.describe "posts/new.html.erb", type: :view do
     fill_in 'post[content]', with: post_content
     click_button('Post Bean')
     visit(user_post_path(u.id, u.posts.first.id))
-    expect(u.posts.first.content).to eq(post_content)
+    expect(u.posts.last.content).to eq(post_content)
   end
 
   it "will display error message if trying to submit invalid post" do
