@@ -5,7 +5,7 @@ RSpec.describe PostsController, type: :feature do
   describe "GET #new" do
     it "will only load if user is logged in" do
       page.set_rack_session(session_id: "")
-      visit(new_post_path)
+      visit(new_user_post_path("5"))
       expect(current_path).to eq(login_path)
     end
   end

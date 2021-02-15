@@ -10,7 +10,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if params[:user_id].to_i == current_user.id
+      @post = Post.new
+    else
+      redirect_to(new_user_post_path(current_user))
+    end
   end
 
   def create

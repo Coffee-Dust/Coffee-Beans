@@ -9,7 +9,7 @@ RSpec.describe "posts/new.html.erb", type: :view do
   
   it "creates a new post only if valid" do
     user_login
-    visit "beans/new"
+    visit new_user_post_path(u)
     fill_in 'post[content]', with: post_content
     click_button('Post Bean')
     visit(user_post_path(u.id, u.posts.first.id))
@@ -18,7 +18,7 @@ RSpec.describe "posts/new.html.erb", type: :view do
 
   it "will display error message if trying to submit invalid post" do
     user_login
-    visit "beans/new"
+    visit new_user_post_path(u)
     click_button('Post Bean')
     expect(page.find(".field_with_errors")).to be_truthy
   end
