@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :posts, path: "beans", only: [:show, :new]
   end
   resources :posts, path: "beans", except: [:show, :new]
-  
-  post :reactions, to: 'reactions#react_or_remove'
 
+  post :reactions, to: 'reactions#react_or_remove'
+  
   resources :comments, only: [:create, :destroy]
 
   get 'login', to: 'sessions#new'
