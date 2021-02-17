@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_162738) do
+ActiveRecord::Schema.define(version: 2021_02_17_180704) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_162738) do
   end
 
   create_table "reactions", force: :cascade do |t|
-    t.integer "reaction_type"
+    t.string "reaction_type"
     t.integer "user_id"
     t.string "reactable_type", null: false
     t.integer "reactable_id", null: false
