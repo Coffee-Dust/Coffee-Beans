@@ -2,16 +2,16 @@
 <h4>It will look pretty later...</h4>
 <%= form_for(@user) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: error_message_for_field(:name, @user) %>
 
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, placeholder: error_message_for_field(:email, @user) %>
 
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, placeholder: error_message_for_field(:password, @user) %>
 
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation, placeholder: error_message_for_field(:password_confirmation, @user) %>
 
   <%= f.submit %>
 <% end %>
