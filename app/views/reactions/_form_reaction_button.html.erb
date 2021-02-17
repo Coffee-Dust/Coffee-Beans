@@ -2,5 +2,5 @@
   <%= f.hidden_field(:reaction_type, value: type) %>
   <%= f.hidden_field(:reactable_id, value: parent.id) %>
   <%= f.hidden_field(:reactable_type, value: parent.class) %>
-  <%= f.submit(type, class: ("reacted" if user_has_reacted_with_type?(type, parent)) ) %>
+  <%= f.submit("#{type}: #{parent.reactions.number_of_type(type)}", class: ("reacted" if user_has_reacted_with_type?(type, parent)) ) %>
 <% end %>
