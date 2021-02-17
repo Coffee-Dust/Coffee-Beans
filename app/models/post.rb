@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :reactions, as: :reactable
   has_many :users_who_commented, through: :comments, source: :user
-
+  has_one :image
   validates_presence_of :content, :user_id
+
+  accepts_nested_attributes_for :image
 end
