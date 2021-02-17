@@ -1,0 +1,3 @@
+<% Reaction.all_types.each do |type| %>
+  <%= render(partial: "reactions/form_reaction_button", locals: {parent: parent, type: type}) %>
+<% end %>
