@@ -2,15 +2,18 @@ class Reaction < ActiveRecord::Base
   belongs_to :reactable, polymorphic: true
   belongs_to :user
 
-  validates_presence_of :reaction_type, :reactable_id, :reaction_type, :user
+  validates_presence_of :reaction_type, :reactable_id, :reactable_type, :user
+
+  scope :from_user, ->(user) { where(user_id: user.id) }
 
   # Magic Numbers Definition - ITS MAGIC
   REACTION_TYPES = {
     1 => :like,
-    2 => :love,
-    3 => :laugh,
-    4 => :angry,
-    5 => :sad
+    2 => :dislike,
+    3 => :love,
+    4 => :laugh,
+    5 => :angry,
+    6 => :sad
   }
 
   def type
