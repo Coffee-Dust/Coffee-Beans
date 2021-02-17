@@ -1,6 +1,5 @@
 module ReactionsHelper
-  
-end
+
 def user_has_reacted_with_type?(type, parent)
     @last_parent_class ||= parent.class
     if parent.class == @last_parent_class
