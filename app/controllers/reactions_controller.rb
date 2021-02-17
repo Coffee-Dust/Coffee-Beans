@@ -50,7 +50,7 @@ class ReactionsController < ApplicationController
 
     if users_posts_reactions.present? && existing_reaction = users_posts_reactions.of_type(new_reaction.reaction_type)
       # The reaction already exists. Assigning it to class var 
-      # so i can be killed with fire
+      # so it can be killed with fire
       @reaction = existing_reaction
     else
       # Assigning the already built reaction to class var
