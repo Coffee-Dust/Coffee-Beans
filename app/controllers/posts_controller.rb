@@ -48,7 +48,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, image_attributes: [:location, :attachment])
+    if params[:post][:image_attributes][:attachment]
+      params.require(:post).permit(:content, image_attributes: [:location, :attachment])
+    else
+      params.require(:post).permit(:content)
+    end
   end
 
   def check_owner
@@ -59,4 +63,5 @@ class PostsController < ApplicationController
       redirect_back(fallback_location: user_path(current_user))
     end
   end
+
 end
