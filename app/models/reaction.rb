@@ -14,7 +14,11 @@ class Reaction < ActiveRecord::Base
     "angry",
     "sad"
   ]
-  
+
+  def type
+    self.reaction_type
+  end
+
   def self.reaction_types
     REACTION_TYPES
   end
