@@ -16,8 +16,12 @@ class Reaction < ActiveRecord::Base
     6 => :sad
   }
 
-  def type
+  def type_name
     REACTION_TYPES[self.reaction_type]
+  end
+
+  def self.reaction_types
+    REACTION_TYPES
   end
 
   def self.find_reactions_for_user_on_reactable(user, reactable)
