@@ -2,6 +2,16 @@
 <p>Find me in app/views/posts/new.html.erb</p>
 
 <%= form_for(@post) do |f| %>
-  <%= f.text_field :content %>
+  <%= f.text_field :content, placeholder: error_message_for_field(:content, @post) %>
+
+  <div class="image_upload_form">
+  <%= f.fields_for(:image, Image.new) do |ff| %>
+    <%= ff.label :attachment, "Choose a picture(it better be about coffee...)" %>
+    <%= ff.file_field :attachment %>
+    <%= ff.label :location, "Add a location?(optional)"%>
+    <%= ff.text_field :location, placeholder: "Picture Location" %>
+  <% end %>
+  </div>
+
   <%= f.submit("Post Bean") %>
 <% end %>
