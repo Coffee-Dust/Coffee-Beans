@@ -1,0 +1,9 @@
+<% Reaction.reaction_types.each do |type| %>
+  <%# Type is an array: [type number, type name] %>
+  <%= form_for(Reaction.new, html: {class: "reaction_button reaction_button_for_#{parent.class}", id: nil}) do |f| %>
+    <%= f.hidden_field(:reaction_type, value: type[0]) %>
+    <%= f.hidden_field(:reactable_id, value: parent.id) %>
+    <%= f.hidden_field(:reactable_type, value: parent.class) %>
+    <%= f.submit(type[1], class: ("reacted" if user_has_reacted_with_type?(type, parent)) ) %>
+  <% end %>
+<% end %>
