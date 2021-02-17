@@ -6,20 +6,15 @@ class Reaction < ActiveRecord::Base
 
   scope :from_user, ->(user) { where(user_id: user.id) }
 
-  # Magic Numbers Definition - ITS MAGIC
-  REACTION_TYPES = {
-    1 => :like,
-    2 => :dislike,
-    3 => :love,
-    4 => :laugh,
-    5 => :angry,
-    6 => :sad
-  }
-
-  def type_name
-    REACTION_TYPES[self.reaction_type]
-  end
-
+  REACTION_TYPES = [
+    "like",
+    "dislike",
+    "love",
+    "laugh",
+    "angry",
+    "sad"
+  ]
+  
   def self.reaction_types
     REACTION_TYPES
   end
