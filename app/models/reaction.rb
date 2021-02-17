@@ -19,7 +19,7 @@ class Reaction < ActiveRecord::Base
     self.reaction_type
   end
 
-  def self.reaction_types
+  def self.all_types
     REACTION_TYPES
   end
 
