@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#home'
+  get 'profile', to: 'welcome#profile'
   
   resources :users, except: [:index] do
     resources :posts, path: "beans", only: [:show, :new]
