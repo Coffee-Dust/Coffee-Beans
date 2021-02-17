@@ -30,4 +30,8 @@ class Reaction < ActiveRecord::Base
   def self.of_type(type)
     self.find_by(reaction_type: type)
   end
+
+  def self.number_of_type(type)
+    self.where(reaction_type: type).count
+  end
 end
