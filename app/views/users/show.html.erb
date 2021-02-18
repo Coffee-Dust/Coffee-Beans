@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="user_title">
+  <h1><%= @user.name %></h1>
+</div>
+<div class="user_commented_posts">
+  <h4 class="user_collection_title">Beans I've Commented On:</h4>
+  <%= render(partial: "posts/div_post", collection: @user.commented_posts, as: "post") %>
+</div>
+
+<div class="user_posts">
+  <h4 class="user_collection_title">My Bean Collection: </h4>
+  <%= render(partial: "posts/div_post", collection: @user.posts, as: "post") %>
+</div>
