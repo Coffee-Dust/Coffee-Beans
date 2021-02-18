@@ -1,6 +1,8 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Posts#Index - Styles
 .index_post {
   height: 500px;
   width: 50%;
@@ -56,6 +58,7 @@
   }
 }
 
+// Posts#New - Styles
 .new_post_container {
   height: 500px;
   width: 50%;
@@ -97,4 +100,75 @@
 }
 .field_with_errors {
   border: 1px solid darkred;
+}
+
+// Posts#Show - Styles
+.show_post {
+  height: 900px;
+  width: 90%;
+  min-width: 500px;
+  background: url(asset_path("bean@4.png")) no-repeat center center;
+  background-size: cover;
+
+  .show_post_link {
+    display: block;
+    float: left;
+    height: 80%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .content_area {
+    margin: 0 auto;
+    height: 50%;
+    width: 75%;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 25px;
+    transform: translateY(50%);
+    color: white;
+  }
+
+  .show_post_user {
+    font-size: 1.7em;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: antiquewhite;
+    }
+  }
+
+  .show_post_content {
+    float: left;
+    font-size: 1.3em;
+  }
+
+  .show_post_reactions {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    form {
+      display: inline;
+    }
+  }
+
+  .show_post_image {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    float: right;
+    max-height: 50%;
+    max-width: 50%;
+    
+
+    img {
+      height: 100%;
+      width: 100%;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+    }
+  }
 }
