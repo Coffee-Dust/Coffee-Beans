@@ -1,17 +1,25 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
 
-<%= form_for(@post) do |f| %>
-  <%= f.text_field :content, placeholder: error_message_for_field(:content, @post) %>
+<div class="new_post_container">
+  <div class="form_content_area">
+    <%= form_for(@post) do |f| %>
 
-  <div class="image_upload_form">
-  <%= f.fields_for(:image, Image.new) do |ff| %>
-    <%= ff.label :attachment, "Choose a picture(it better be about coffee...)" %>
-    <%= ff.file_field :attachment %>
-    <%= ff.label :location, "Add a location?(optional)"%>
-    <%= ff.text_field :location, placeholder: "Picture Location" %>
-  <% end %>
+    <div class="new_post_title">
+      New Bean! Make sure it's about coffee!
+    </div>
+
+    <div class="new_post_content">
+      <%= f.text_area :content, placeholder: error_message_for_field(:content, @post) %>
+    </div>
+    
+    <div class="new_post_image_form">
+      <%= f.fields_for(:image, Image.new) do |ff| %>
+        <%= ff.label :attachment, "Choose a picture(it better be about coffee...)" %>
+        <%= ff.file_field :attachment %>
+        <%= ff.label :location, "Add a location?(optional)"%>
+        <%= ff.text_field :location, placeholder: "Picture Location" %>
+      <% end %>
+    </div>
+    <%= f.submit("Post Bean", class: "new_post_submit") %>
+    <% end %>
   </div>
-
-  <%= f.submit("Post Bean") %>
-<% end %>
+</div>
