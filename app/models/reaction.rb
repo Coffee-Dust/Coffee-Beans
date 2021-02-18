@@ -34,4 +34,20 @@ class Reaction < ActiveRecord::Base
   def self.number_of_type(type)
     self.where(reaction_type: type).count
   end
+
+  def self.find_or_build_reaction_with(reaction_params, current_user)
+    new_reaction = Reaction.new(reaction_params)
+    new_reaction.user = current_user
+    users_posts_reactions = Reaction.find_reactions_for_user_on_reactable(current_user, new_reaction.reactable)
+
+    if users_posts_reactions.present? && existing_reaction = users_posts_reactions.of_type(new_reaction.reaction_type)
+      # The reaction already exists. Assigning it to class var 
+      # so it can be killed with fire
+      return existing_reaction
+    else
+      # Assigning the already built reaction to class var
+      return new_reaction
+    end
+  end
+
 end

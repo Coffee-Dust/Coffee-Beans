@@ -3,7 +3,7 @@ class ReactionsController < ApplicationController
 
   def react_or_remove
 
-    find_or_build_reaction #assigns @reaction
+    @reaction = Reaction.find_or_build_reaction_with(reaction_params, current_user)
 
     if @reaction.persisted?
       # If it is persisted, then it already exists and must be destroyed!
@@ -40,21 +40,6 @@ class ReactionsController < ApplicationController
       redirect_to(user_post_path(@reaction.reactable.post.user, @reaction.reactable.post))
     else
       raise "Error in redirect to reactable class; Class invalid: #{@reaction.reactable.class.to_s}"
-    end
-  end
-
-  def find_or_build_reaction
-    new_reaction = Reaction.new(reaction_params)
-    new_reaction.user = current_user
-    users_posts_reactions = Reaction.find_reactions_for_user_on_reactable(current_user, new_reaction.reactable)
-
-    if users_posts_reactions.present? && existing_reaction = users_posts_reactions.of_type(new_reaction.reaction_type)
-      # The reaction already exists. Assigning it to class var 
-      # so it can be killed with fire
-      @reaction = existing_reaction
-    else
-      # Assigning the already built reaction to class var
-      @reaction = new_reaction
     end
   end
 
