@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    if params[:post][:image_attributes][:attachment]
+    if params[:post][:image_attributes] && params[:post][:image_attributes][:attachment]
       params.require(:post).permit(:content, image_attributes: [:location, :attachment])
     else
       params.require(:post).permit(:content)
