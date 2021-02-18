@@ -1,0 +1,3 @@
+<% if comment.user == user %>
+  <%= button_to("delete", comment_path(comment), method: "delete", class: "comment_action_button", data: {confirm: "Are you sure?"}) %>
+<% end %>
