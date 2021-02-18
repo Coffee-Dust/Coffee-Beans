@@ -1,9 +1,9 @@
 <nav>
+  <%= link_to('Coffee-Beans', root_path, class: "page_title") %>
   <ul>
-    <li><%= link_to('Coffee-Beans', root_path, class: "page_title") %></li>
     <li><%= link_to("Beans-Feed", posts_path) %></li>
     <li><%= link_to("Profile", profile_path) %></li>
     <li><%= link_to("New Bean", new_user_post_path(current_user || "0")) %></li>
-    <li><%= button_to("Logout", logout_path) %></li>
+    <li><%= button_to("Logout", logout_path, class: "logout_button") %></li>
   </ul>
 </nav>
