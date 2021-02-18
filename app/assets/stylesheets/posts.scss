@@ -29,7 +29,14 @@
 
   .index_post_user {
     font-size: 1.3em;
-
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: antiquewhite;
+    }
   }
 
   .index_post_content {
@@ -87,4 +94,7 @@
     position: absolute;
     bottom: 10px;
   }
+}
+.field_with_errors {
+  border: 1px solid darkred;
 }
