@@ -1,0 +1,25 @@
+body {
+  background: url(asset_path("brickwallbg.jpg"));
+  background-size: contain;
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(7px);
+  box-shadow: 1px 1px 25px 10px rgba(0,0,0,1);
+}
+
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
