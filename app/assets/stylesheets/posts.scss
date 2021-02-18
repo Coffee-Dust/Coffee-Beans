@@ -48,3 +48,43 @@
     }
   }
 }
+
+.new_post_container {
+  height: 500px;
+  width: 50%;
+  min-width: 500px;
+  background: url(asset_path("bean@4.png")) no-repeat center center;
+  background-size: cover;
+
+  .form_content_area {
+    margin: 0 auto;
+    height: 50%;
+    width: 75%;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 25px;
+    transform: translateY(50%);
+    color: white;
+  }
+
+  .new_post_title {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+
+  .new_post_content {
+    float: left;
+  }
+
+  .new_post_image_form {
+    height: 80%;
+    max-height: 75%;
+    max-width: 50%;
+    float: right;
+  }
+
+  .new_post_submit {
+    position: absolute;
+    bottom: 10px;
+  }
+}
