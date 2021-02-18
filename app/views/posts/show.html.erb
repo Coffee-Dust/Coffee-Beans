@@ -12,7 +12,7 @@
     <div class="show_post_content">
       <p><%= @post.content %></p>
     </div>
-
+    <%= render(partial: "form_actions", locals: {post: @post, user: current_user}) %>
   </div>
 
   <div class="show_post_interactions">
