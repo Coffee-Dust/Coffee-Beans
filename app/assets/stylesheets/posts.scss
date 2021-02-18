@@ -4,6 +4,7 @@
 
 // Posts#Index - Styles
 .index_post {
+  margin: 0 auto;
   height: 500px;
   width: 50%;
   min-width: 500px;
@@ -27,6 +28,8 @@
     border-radius: 25px;
     transform: translateY(50%);
     color: white;
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
   }
 
   .index_post_user {
@@ -60,6 +63,7 @@
 
 // Posts#New - Styles
 .new_post_container {
+  margin: 0 auto;
   height: 500px;
   width: 50%;
   min-width: 500px;
@@ -75,6 +79,8 @@
     border-radius: 25px;
     transform: translateY(50%);
     color: white;
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
   }
 
   .new_post_title {
