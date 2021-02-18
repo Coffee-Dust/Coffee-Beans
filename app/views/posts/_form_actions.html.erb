@@ -1,0 +1,4 @@
+<% if post.user == user %>
+  <%= button_to("Edit Bean", edit_post_path(post), method: "get", class: "post_action_button") %>
+  <%= button_to("Delete Bean", post_path(post), method: "delete", class: "post_action_button") %>
+<% end %>
