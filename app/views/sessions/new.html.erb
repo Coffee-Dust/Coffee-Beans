@@ -1,7 +1,14 @@
 <%= check_and_display_alert %>
+
+<div class="signin_content">
+
 <h1>Enter email & password fewl...</h1>
 <%= render(partial: "form_signin", locals: {user: @user}) %>
 
 <p>Or Log-in/Sign-up with your <%= link_to('GitHub Account!', '/auth/github')%>.</p>
+
 <h2>Don't have an account? <%= link_to("Well, make one!", new_user_path) %> (it's free and totally safe)</h2>
+
 <p>Or your <%= link_to('Facebook Account', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')%> <- (warning this is a rickroll)</p>
+
+</div>
