@@ -1,3 +1,16 @@
-<div>
-  
+<div class="index_post">
+  <div class="content_area">
+
+    <div class="index_post_user">
+      <%= post.user.name %>
+    </div>
+
+    <div class="index_post_content">
+      <p><%= post.content %></p>
+    </div>
+    <% if post.image %>
+      <div class="index_post_image"><%= image_tag(post.image.attachment) %></div>
+    <% end %>
+    <%= link_to("", user_post_path(post.user, post), class: "index_post_link") %>
+  </div>
 </div>
