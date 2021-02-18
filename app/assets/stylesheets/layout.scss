@@ -1,5 +1,5 @@
 body {
-  background: url(asset_path("brickwallbg.jpg"));
+  background: url(asset_path("brickwallbg2.jpg"));
   background-size: contain;
 }
 
@@ -7,9 +7,10 @@ body {
   width: 95%;
   max-width: 2000px;
   margin: 0 auto;
+  margin-top: 49px;
   padding: 10px;
   background-color: rgba(0,0,0,0.8);
-  color: white;
+  color: antiquewhite;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(7px);
   box-shadow: 1px 1px 25px 10px rgba(0,0,0,1);
@@ -22,4 +23,76 @@ body {
   visibility: hidden;
   height: 0;
   line-height: 0;
+}
+
+nav {
+  display: block;
+  position: fixed;
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(37, 12, 0);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+
+  .page_title {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    float: left;
+    margin-right: 3%;
+    font-size: 2em;
+    font-family: fantasy;
+    margin-left: 2%;
+    color: antiquewhite;
+  }
+
+  .logout_button {
+    display: block;
+    float: right;
+    border: none;
+    background: none;
+    color: antiquewhite;
+    font-size: 1em;
+    padding: 1px 7px;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    display: block;
+    height: 100%;
+    li {
+      display: flex;
+      float: left;
+      margin-right: 30px;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 0 10px;
+    }
+
+    li:hover {
+      background-color: antiquewhite;
+      a {
+        color: black;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    li a {
+      font-size: 1.3em;
+      text-decoration: none;
+      color: antiquewhite;
+    }
+
+    li:last-child {
+      float: right;
+      margin: 0 25px;
+    }
+  }
 }
