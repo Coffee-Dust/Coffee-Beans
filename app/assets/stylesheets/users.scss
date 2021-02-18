@@ -1,3 +1,30 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.user_title {
+  font-family: cursive;
+  font-size: 1.5em;
+  padding: 0px;
+  padding-left: 10px;
+}
+
+.user_posts {
+  width: 50%;
+  float: left;
+  border-right: 5px solid rgba(43, 1, 1, 0.842);
+}
+
+.user_commented_posts {
+  width: calc(50% - 5px);
+  float: right;
+}
+
+.user_collection_title {
+  position: relative;
+  top: 0px;
+  font-size: 1.4em;
+  background-color: #663b24;
+  padding: 5px;
+  color: white;
+  text-align: center;
+}
