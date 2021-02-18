@@ -2,7 +2,7 @@
   <div class="content_area">
 
     <div class="index_post_user">
-      <%= post.user.name %>
+      <%= link_to(post.user.name, user_path(post.user)) %>
     </div>
 
     <div class="index_post_content">
