@@ -6,4 +6,12 @@ module ApplicationHelper
       return nil
     end
   end
+
+  def check_and_display_alert(object=nil)
+    if flash[:alert].present?
+      message = flash[:alert]
+
+      render(partial: "application/error_display_ribbon", locals: {message: message})
+    end
+  end
 end
