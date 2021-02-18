@@ -1,3 +1,50 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.index_post {
+  height: 500px;
+  width: 50%;
+  min-width: 500px;
+  background: url(asset_path("bean@4.png")) no-repeat center center;
+  background-size: cover;
+
+  .index_post_link {
+    display: block;
+    float: left;
+    height: 80%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .content_area {
+    margin: 0 auto;
+    height: 50%;
+    width: 75%;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 25px;
+    transform: translateY(50%);
+    color: white;
+  }
+
+  .index_post_user {
+    font-size: 1.3em;
+
+  }
+
+  .index_post_content {
+    float: left;
+  }
+
+  .index_post_image {
+    height: 80%;
+    max-height: 75%;
+    max-width: 50%;
+    float: right;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
