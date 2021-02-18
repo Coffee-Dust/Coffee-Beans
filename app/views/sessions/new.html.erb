@@ -1,10 +1,6 @@
 <%= check_and_display_alert %>
 <h1>Enter email & password fewl...</h1>
-<%= form_for(@user, url: sessions_path) do |f| %>
-  <%= f.text_field :email %>
-  <%= f.password_field :password %>
-  <%= f.submit("Log In") %>
-<% end %>
+<%= render(partial: "form_signin", locals: {user: @user}) %>
 
 <p>Or Log-in/Sign-up with your <%= link_to('GitHub Account!', '/auth/github')%>.</p>
 <h2>Don't have an account? <%= link_to("Well, make one!", new_user_path) %> (it's free and totally safe)</h2>
