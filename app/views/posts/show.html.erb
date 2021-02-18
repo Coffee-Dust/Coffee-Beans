@@ -1,6 +1,9 @@
 <div class="show_post">
   <div class="content_area">
     <%# put all content under this %>
+    <% if @post.image %>
+      <div class="show_post_image"><%= image_tag(@post.image.attachment) %></div>
+    <% end %>
 
     <div class="show_post_user">
       <%= link_to(@post.user.name, user_path(@post.user)) %>
@@ -25,9 +28,5 @@
     </div>
 
   </div>
-
-  <% if @post.image %>
-    <div class="show_post_image"><%= image_tag(@post.image.attachment) %></div>
-  <% end %>
 
 </div>
