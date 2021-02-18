@@ -12,7 +12,12 @@
 
     <div class="show_post_reactions">
     <%= render(partial: "reactions/all_reaction_buttons", locals: {parent: @post}) %>
+    <div class="show_post_comments">
+      <div id="comments_title">comments</div>
+        <%= render(partial: "comments/post_comment", collection: @post.comments, as: "comment") %>
+      </div>
     </div>
+
 
   </div><%# end_of content_area %>
   <% if @post.image %>
