@@ -1,0 +1,7 @@
+<div class="comment">
+  <%= link_to(comment.user.name, user_path(comment.user)) %>
+  <p><%= comment.content %></p>
+  <div class="comment_reactions">
+    <%= render(partial: "reactions/form_reaction_button", collection: ["like", "dislike", "laugh"], as: "type", locals: {parent: comment}) %>
+  </div>
+</div>
