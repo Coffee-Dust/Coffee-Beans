@@ -16,6 +16,7 @@
 
     <div class="show_post_reactions">
     <%= render(partial: "reactions/all_reaction_buttons", locals: {parent: @post}) %>
+    <%= render(partial: "comments/post_comment_form", locals: {post: @post, comment: Comment.new}) %>
     </div>
 
     <div class="show_post_comments clearfix">

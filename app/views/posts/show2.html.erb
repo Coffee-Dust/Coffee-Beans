@@ -1,0 +1,37 @@
+<h1>Posts#show</h1>
+<p>Find me in app/views/posts/show.html.erb</p>
+<p>your bean below:</p>
+<style type="text/css">
+  .reacted {
+    background: brown;
+    border: none;
+  }
+</style>
+<%= @post.user.name %>
+<%= @post.content %>
+<%# <%= image_tag(@post.image.attachment) %> %>
+<h3>Reactions: </h3>
+<% @post.reactions.each do |reaction| %>
+  <span><%= reaction.user.name %>: <%= reaction.type%></span>
+<% end %>
+<%= render(partial: "reactions/all_reaction_buttons", locals: {parent: @post}) %>
+<%= button_to "Delete Bean", post_path(@post), method: "delete", data: {confirm: "Are you sure?"} %>
+
+<% if logged_in? %>
+  <%= form_for(Comment.new) do |f| %>
+    <%= f.hidden_field(:post_id, value: @post.id) %>
+    <%= f.text_field(:content) %>
+    <%= f.submit("submit") %>
+  <% end %>
+<% end %>
+
+<% @post.comments.each do |comment| %>
+  <div class="comment" id="comment_id<%=comment.id%>">
+    <h4><%= comment.user.name %></h4>
+    <p><%= comment.content %></p>
+    <% if comment.user == current_user %>
+      <%= button_to "Delete", comment_path(comment), method: "delete", class: "delete_comment", data: {confirm: "Are you sure?"}, params: {"comment[id]": comment.id} %>
+    <% end %>
+    <%= render(partial: "reactions/form_reaction_button", collection: Reaction.all_types, as: "type", locals: {parent: comment}) %>
+  </div>
+<% end %>

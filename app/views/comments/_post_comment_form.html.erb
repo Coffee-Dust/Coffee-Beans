@@ -1,0 +1,6 @@
+
+<%= form_for(comment, class: "new_comment_form") do |f| %>
+  <%= f.text_field :content, placeholder: error_message_for_field(:content, comment)%>
+  <%= f.hidden_field :post_id, value: post.id %>
+  <%= f.submit("->") %>
+<% end %>
