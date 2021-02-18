@@ -3,5 +3,6 @@
   <p><%= comment.content %></p>
   <div class="comment_reactions">
     <%= render(partial: "reactions/form_reaction_button", collection: ["like", "dislike", "laugh"], as: "type", locals: {parent: comment}) %>
+    <%= render(partial: "comments/action_buttons", locals: {comment: comment, user: current_user}) %>
   </div>
 </div>
