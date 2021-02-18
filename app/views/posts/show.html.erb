@@ -1,5 +1,22 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
-<p>your bean below:</p>
-<%= @post.content %>
-<%= button_to("Delete Bean", post_path(@post), method: "delete") %>
+<div class="show_post">
+  <div class="content_area">
+    <%# put all content under this %>
+
+    <div class="show_post_user">
+      <%= link_to(@post.user.name, user_path(@post.user)) %>
+    </div>
+
+    <div class="show_post_content">
+      <p><%= @post.content %></p>
+    </div>
+
+    <div class="show_post_reactions">
+    <%= render(partial: "reactions/all_reaction_buttons", locals: {parent: @post}) %>
+    </div>
+
+  </div><%# end_of content_area %>
+  <% if @post.image %>
+    <div class="show_post_image"><%= image_tag(@post.image.attachment) %></div>
+  <% end %>
+
+</div>
