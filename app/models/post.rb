@@ -6,5 +6,7 @@ class Post < ActiveRecord::Base
   has_one :image
   validates_presence_of :content, :user_id
 
+  scope :search, ->(query_string) {self.where("content LIKE ?", "%#{query_string}%")}
+
   accepts_nested_attributes_for :image
 end
