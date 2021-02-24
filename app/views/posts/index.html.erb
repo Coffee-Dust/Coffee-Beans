@@ -1,3 +1,8 @@
+<h4>A beautiful search form:</h4>
+<%= form_tag(posts_path, method: "GET") do %>
+  <%= text_field_tag(:search) %>
+<% end %>
+
 <h1>Latest Beans</h1>
 
 <%= render(partial: "div_post", collection: @posts, as: "post") %>
